@@ -9,6 +9,38 @@
           @keyup.enter="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="排序号" prop="orderNo">
+        <el-input
+          v-model="queryParams.orderNo"
+          placeholder="请输入排序号"
+          clearable
+          @keyup.enter="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="单位" prop="unit">
+        <el-input
+          v-model="queryParams.unit"
+          placeholder="请输入单位"
+          clearable
+          @keyup.enter="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="价格" prop="price">
+        <el-input
+          v-model="queryParams.price"
+          placeholder="请输入价格"
+          clearable
+          @keyup.enter="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="护理要求" prop="nursingRequirement">
+        <el-input
+          v-model="queryParams.nursingRequirement"
+          placeholder="请输入护理要求"
+          clearable
+          @keyup.enter="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="Search" @click="handleQuery">搜索</el-button>
         <el-button icon="Refresh" @click="resetQuery">重置</el-button>
@@ -71,6 +103,7 @@
       </el-table-column>
       <el-table-column label="护理要求" align="center" prop="nursingRequirement" />
       <el-table-column label="状态" align="center" prop="status" />
+      <el-table-column label="备注" align="center" prop="remark" />
       <el-table-column label="创建时间" align="center" prop="createTime" width="180">
         <template #default="scope">
           <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d}') }}</span>
@@ -113,6 +146,9 @@
         <el-form-item label="护理要求" prop="nursingRequirement">
           <el-input v-model="form.nursingRequirement" placeholder="请输入护理要求" />
         </el-form-item>
+        <el-form-item label="备注" prop="remark">
+          <el-input v-model="form.remark" placeholder="请输入备注" />
+        </el-form-item>
       </el-form>
       <template #footer>
         <div class="dialog-footer">
@@ -145,20 +181,16 @@ const data = reactive({
     pageNum: 1,
     pageSize: 10,
     name: null,
+    orderNo: null,
+    unit: null,
+    price: null,
+    image: null,
+    nursingRequirement: null,
     status: null,
   },
   rules: {
-    name: [
-      { required: true, message: "名称不能为空", trigger: "blur" }
-    ],
-    price: [
-      { required: true, message: "价格不能为空", trigger: "blur" }
-    ],
-    image: [
-      { required: true, message: "图片不能为空", trigger: "blur" }
-    ],
-    nursingRequirement: [
-      { required: true, message: "护理要求不能为空", trigger: "blur" }
+    status: [
+      { required: true, message: "状态不能为空", trigger: "change" }
     ],
   }
 })

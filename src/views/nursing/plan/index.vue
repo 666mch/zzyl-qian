@@ -1,14 +1,6 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryRef" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="排序号" prop="sortNo">
-        <el-input
-          v-model="queryParams.sortNo"
-          placeholder="请输入排序号"
-          clearable
-          @keyup.enter="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="名称" prop="planName">
         <el-input
           v-model="queryParams.planName"
@@ -131,11 +123,13 @@ const data = reactive({
   queryParams: {
     pageNum: 1,
     pageSize: 10,
-    sortNo: null,
     planName: null,
     status: null,
   },
   rules: {
+    sortNo: [
+      { required: true, message: "排序号不能为空", trigger: "blur" }
+    ],
     planName: [
       { required: true, message: "名称不能为空", trigger: "blur" }
     ],

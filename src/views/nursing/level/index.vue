@@ -121,7 +121,7 @@
 </template>
 
 <script setup name="Level">
-import { listLevel, getLevel, delLevel, addLevel, updateLevel } from "@/api/system/level"
+import { listLevel, getLevel, delLevel, addLevel, updateLevel } from "@/api/nursing/level"
 
 const { proxy } = getCurrentInstance()
 

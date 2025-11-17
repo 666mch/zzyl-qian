@@ -275,4 +275,3 @@ const getAllNursingPlanList = () => {
 getList();
 getAllNursingPlanList();
 </script>
-

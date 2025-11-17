@@ -42,3 +42,4 @@ export function delLevel(id) {
     method: 'delete'
   })
 }
+
